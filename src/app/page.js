@@ -1,101 +1,91 @@
 import Image from "next/image";
+import Navbar from "@/components/Navbar";
+import profile from "@/image/v.jpg";
+import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="bg-black min-h-screen text-white overflow-x-hidden">
+      <Navbar />
+      
+      <div className="max-w-7xl mx-auto px-4 py-16 md:py-24 flex flex-col lg:flex-row items-center justify-between gap-12">
+        {/* Left Column - Text Content */}
+        <div className="lg:w-3/5 space-y-6">
+          <h1 className="text-3xl md:text-4xl lg:text-4xl font-light leading-tight">
+            <span className="text-white">Code. </span>
+            <span className="text-purple-400">AI. </span>
+            <span className="text-white">Space. </span>
+            <span className="text-purple-400">Shaping the Future.</span>
+          </h1>
+          
+          <div className="space-y-4 text-gray-300 text-lg font-light">
+            <p>Hey, I&apos;m Vaibhavi — a Full Stack Developer, AI Enthusiast, and Space Dreamer.</p>
+            <p>I love creating sleek, intelligent, and futuristic digital experiences.</p>
+            <p>My goal? Innovate. Create. Shape tomorrow, and bring the future to life.</p>
+          </div>
+          
+          <div className="pt-6">
+            <p className="text-purple-400 text-xl font-light pb-6">
+              Let&apos;s collaborate and build something amazing!
+            </p>
+            
+            <div className="flex flex-wrap gap-4">
+              <a 
+                href="mailto:vaibhavichaudhari304@gmail.com" 
+                className="px-6 py-3 bg-black border border-purple-500 rounded-md text-white hover:bg-purple-900/30 transition-colors duration-300 shadow-md shadow-purple-800/20 flex items-center gap-2"
+              >
+                <FaEnvelope className="text-purple-400" /> Say Hello 👋
+              </a>
+              
+              <div className="flex items-center gap-4 ml-2">
+                <a 
+                  href="https://github.com/vaibhavii3" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-gray-400 hover:text-purple-400 transition-colors"
+                >
+                  <FaGithub size={22} />
+                </a>
+                <a 
+                  href="https://linkedin.com/in/vaibhavi-chaudhari-1b003120b" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-gray-400 hover:text-purple-400 transition-colors"
+                >
+                  <FaLinkedin size={22} />
+                </a>
+                {/* <a 
+                  href="https://twitter.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-gray-400 hover:text-purple-400 transition-colors"
+                >
+                  <FaTwitter size={22} />
+                </a> */}
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        
+        {/* Right Column - Profile Image */}
+        <div className="lg:w-2/5 flex justify-center lg:justify-end">
+          <div className="relative rounded-md  p-1 bg-black/50 ">
+            <div className="absolute inset-0 border border-purple-500/20 rounded-md blur-md"></div>
+            <Image 
+              src={profile}
+              alt="Profile"
+              width={300}
+              height={350}
+              className="rounded-md object-cover"
+              priority
+            />
+            <div className="p-4 border-t border-purple-800/30">
+              <h3 className="text-lg font-light text-white">Vaibhavi Chaudhari</h3>
+              <p className="text-purple-400 font-light">Gujarat, India</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
