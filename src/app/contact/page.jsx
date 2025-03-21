@@ -1,7 +1,37 @@
+"use client";
+
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import { FaEnvelope, FaGithub, FaLinkedin, FaTwitter, FaDiscord } from "react-icons/fa";
 import Navbar from "@/components/Navbar";
 
 export default function Contact() {
+  const form = useRef();
+  const [isSending, setIsSending] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    setIsSending(true);
+    setMessage("");
+
+    try {
+      await emailjs.sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        form.current,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_ID,
+      );
+      setMessage("Message sent successfully!");
+      form.current.reset();
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setMessage("Failed to send message. Try again later.");
+    }
+
+    setIsSending(false);
+  };
+
   return (
     <div className="bg-black min-h-screen text-white overflow-x-hidden">
       <Navbar />
@@ -16,9 +46,10 @@ export default function Contact() {
           <div className="border border-purple-800/30 rounded-md p-6 hover:border-purple-400 transition-colors duration-300">
             <h2 className="text-lg font-light mb-6">Get in touch</h2>
             
-            <form className="space-y-5">
+            <form ref={form} onSubmit={sendEmail} className="space-y-5">
               <div>
                 <input 
+                  name="user_name"
                   type="text" 
                   className="w-full p-3 border border-purple-800/30 rounded-md text-white bg-black/50 focus:outline-none focus:border-purple-400 transition-colors" 
                   placeholder="Name" 
@@ -28,6 +59,7 @@ export default function Contact() {
               
               <div>
                 <input 
+                  name="user_email"
                   type="email" 
                   className="w-full p-3 border border-purple-800/30 rounded-md text-white bg-black/50 focus:outline-none focus:border-purple-400 transition-colors" 
                   placeholder="Email" 
@@ -37,6 +69,7 @@ export default function Contact() {
               
               <div>
                 <input 
+                  name="title"
                   type="text" 
                   className="w-full p-3 border border-purple-800/30 rounded-md text-white bg-black/50 focus:outline-none focus:border-purple-400 transition-colors" 
                   placeholder="Subject" 
@@ -45,6 +78,7 @@ export default function Contact() {
               
               <div>
                 <textarea 
+                  name="message"
                   rows="5" 
                   className="w-full p-3 border border-purple-800/30 rounded-md text-white bg-black/50 focus:outline-none focus:border-purple-400 transition-colors" 
                   placeholder="Your message" 
@@ -55,9 +89,11 @@ export default function Contact() {
               <button 
                 type="submit" 
                 className="w-full bg-black border border-purple-500 rounded-md py-3 px-4 text-white hover:bg-purple-900/30 transition-colors duration-300 shadow-md shadow-purple-800/20"
+                disabled={isSending}
               >
-                Send Message
+                {isSending ? "Sending..." : "Send Message" }
               </button>
+              {message && <p className="text-sm text-center mt-2 text-purple-400"> {message} </p>}
             </form>
           </div>
           
