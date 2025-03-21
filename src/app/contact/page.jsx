@@ -10,21 +10,23 @@ export default function Contact() {
   const [isSending, setIsSending] = useState(false);
   const [message, setMessage] = useState("");
 
-  // Ensure form contains the user's email for reply_to
-  const formData = new FormData(form.current);
-  const emailData = Object.fromEntries(formData.entries());
-  emailData.reply_to = emailData.user_email; // Explicitly set reply_to
-
   const sendEmail = async (e) => {
     e.preventDefault();
     setIsSending(true);
     setMessage("");
 
+  // Ensure form contains the user's email for reply_to
+  const formData = new FormData(form.current);
+  const emailData = Object.fromEntries(formData.entries());
+  emailData.reply_to = emailData.user_email; // Explicitly set reply_to
+
+  console.log("Email Data Sent:", emailData);
+
     try {
       await emailjs.sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-        emailData,
+        form.current,
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_ID,
       );
 
@@ -74,7 +76,7 @@ export default function Contact() {
               </div>
 
               {/* Hidden Input to Ensure Reply-To Works */}
-              <input type="hidden" name="reply_to" />
+              <input type="hidden" name="reply_to" value="" />
               
               <div>
                 <input 
