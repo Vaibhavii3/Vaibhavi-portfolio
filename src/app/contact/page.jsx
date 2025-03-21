@@ -2,13 +2,18 @@
 
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { FaEnvelope, FaGithub, FaLinkedin, FaTwitter, FaDiscord } from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaLinkedin, FaDiscord } from "react-icons/fa";
 import Navbar from "@/components/Navbar";
 
 export default function Contact() {
   const form = useRef();
   const [isSending, setIsSending] = useState(false);
   const [message, setMessage] = useState("");
+
+  // Ensure form contains the user's email for reply_to
+  const formData = new FormData(form.current);
+  const emailData = Object.fromEntries(formData.entries());
+  emailData.reply_to = emailData.user_email; // Explicitly set reply_to
 
   const sendEmail = async (e) => {
     e.preventDefault();
@@ -19,9 +24,10 @@ export default function Contact() {
       await emailjs.sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-        form.current,
+        emailData,
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_ID,
       );
+
       setMessage("Message sent successfully!");
       form.current.reset();
     } catch (error) {
@@ -66,6 +72,9 @@ export default function Contact() {
                   required 
                 />
               </div>
+
+              {/* Hidden Input to Ensure Reply-To Works */}
+              <input type="hidden" name="reply_to" />
               
               <div>
                 <input 
