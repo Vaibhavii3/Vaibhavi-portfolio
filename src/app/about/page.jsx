@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import { FaBook, FaLaptopCode, FaStar, FaRocket, FaLightbulb, FaCode, FaRobot, FaSpaceShuttle, FaCameraRetro } from "react-icons/fa";
+import { FaBook, FaLaptopCode, FaStar, FaRocket, FaLightbulb, FaCode, FaRobot, FaSpaceShuttle, FaCameraRetro, FaLanguage } from "react-icons/fa";
 
 export default function About() {
   return (
@@ -58,12 +58,12 @@ export default function About() {
               <li className="flex items-center gap-2">
                 <span className="text-purple-400">•</span> TypeScript
               </li>
-              <li className="flex items-center gap-2">
-                <span className="text-purple-400">•</span> DevOps
-              </li>
               {/* <li className="flex items-center gap-2">
-                <span className="text-purple-400">•</span> 
+                <span className="text-purple-400">•</span> DevOps
               </li> */}
+              <li className="flex items-center gap-2">
+                <span className="text-purple-400">•</span> japanese 
+              </li>
             </ul>
           </div>
           
@@ -96,6 +96,27 @@ export default function About() {
               </li>
             </ul>
           </div>
+
+          <div className="border border-purple-800/30 rounded p-6 hover:border-purple-400 transition-colors duration-300">
+              <h2 className="text-lg font-light pb-3 flex items-center gap-2 border-b border-purple-800/30">
+              <FaLanguage className="text-purple-400" /> Languages
+              </h2>
+              <ul className="mt-4 space-y-2 text-gray-300 font-light">
+                <li className="flex items-center gap-2">
+                <span className="text-purple-400">•</span> English 
+                </li>
+                <li className="flex items-center gap-2"> 
+                  <span className="text-purple-400">•</span> Hindi 
+                </li>
+                <li className="flex items-center gap-2"> 
+                  <span className="text-purple-400">•</span> Gujarati 
+                  </li>
+                <li className="flex items-center gap-2"> 
+                  <span className="text-purple-400">•</span> japanese 
+                  </li>
+              </ul>
+          </div>
+
         </div>
       </div>
     </div>
