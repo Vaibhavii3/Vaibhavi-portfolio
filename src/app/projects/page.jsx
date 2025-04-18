@@ -37,6 +37,13 @@ export default function Projects() {
       technologies: ["JavaScript","HTML", "CSS"],
       githubLink: "https://github.com/Vaibhavii3/Slot-Machine-Game.git",
       liveLink: "https://slot-machine-game-orpin.vercel.app/"
+    },
+    {
+      title: "My Blog Website",
+      description: "A dynamic and visually engaging blog platform built using React and Sanity.io. This project showcases articles with rich text, categorized content, and a clean UI. Includes social sharing features and a responsive layout.",
+      technologies: ["React","Sanity.io", "CSS"],
+      githubLink: "https://github.com/Vaibhavii3/My-Blog-Website.git",
+      liveLink: "https://my-blog-website-iota.vercel.app/"
     }
 
   ];
@@ -53,9 +60,9 @@ export default function Projects() {
       skills: ["Node.js", "Express"]
     },
     {
-      name: "Database",
+      name: "Database & CMS",
       icon: <FaDatabase className="text-purple-400" />,
-      skills: ["MongoDB"]
+      skills: ["MongoDB", "Sanity.io"]
     },
     {
       name: "Development Tools",
