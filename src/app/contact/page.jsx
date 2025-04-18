@@ -18,7 +18,7 @@ export default function Contact() {
   // Ensure form contains the user's email for reply_to
   const formData = new FormData(form.current);
   const emailData = Object.fromEntries(formData.entries());
-  emailData.reply_to = emailData.user_email; // Explicitly set reply_to
+  // emailData.reply_to = emailData.user_email;
 
   console.log("Email Data Sent:", emailData);
 
@@ -57,7 +57,7 @@ export default function Contact() {
             <form ref={form} onSubmit={sendEmail} className="space-y-5">
               <div>
                 <input 
-                  name="user_name"
+                  name="from_name"
                   type="text" 
                   className="w-full p-3 border border-purple-800/30 rounded-md text-white bg-black/50 focus:outline-none focus:border-purple-400 transition-colors" 
                   placeholder="Name" 
@@ -67,7 +67,7 @@ export default function Contact() {
               
               <div>
                 <input 
-                  name="user_email"
+                  name="reply_to"
                   type="email" 
                   className="w-full p-3 border border-purple-800/30 rounded-md text-white bg-black/50 focus:outline-none focus:border-purple-400 transition-colors" 
                   placeholder="Email" 
