@@ -3,34 +3,42 @@ import { FaGithub, FaExternalLinkAlt, FaCode, FaServer, FaDatabase, FaTools, FaR
 
 export default function Projects() {
   const projects = [
-    // {
-    //   title: "AI Content Generator",
-    //   description: "An application that uses GPT-4 to generate creative content for various purposes.",
-    //   technologies: ["React", "Next.js", "OpenAI API", "Tailwind CSS"],
-    //   githubLink: "https://github.com/yourusername/ai-content-generator",
-    //   liveLink: "https://ai-content-generator.vercel.app"
-    // },
+    {
+      title: "My Porfolio Website",
+      description: "A modern, multi-page portfolio built with Next.js showcasing my journey as a developer. It includes sections like About Me, Experience, Projects, Skills, Services, and Contact. Designed to reflect my personality, interests, and current learning path — all wrapped in a clean, responsive UI.",
+      technologies: ["Next.js", "CSS/Tailwind"],
+      githubLink: "https://github.com/Vaibhavii3/Vaibhavi-portfolio.git",
+      liveLink: "https://vaibhavi-porfolio.vercel.app/"
+    },
     {
       title: "Weather Map",
       description: "An interactive weather visualization tool that displays real-time weather conditions for various locations. Users can explore temperature, wind speed, humidity, and other meteorological data on a dynamic map.",
       technologies: ["JavaScript"],
-      githubLink: "https://github.com/yourusername/space-dashboard",
-      liveLink: "https://space-dashboard.vercel.app"
+      githubLink: "https://github.com/Vaibhavii3/weather-map.git",
+      liveLink: "https://weather-map-rose-sigma.vercel.app/"
     },
     {
       title: "Customer churm Analysis and Classification",
       description: "A data-driven project that analyzes customer behavior to predict and classify potential churn. Uses Python for data processing and machine learning, with Power BI for visualizing insights and trends.",
       technologies: ["Python", "Power BI"],
-      githubLink: "https://github.com/yourusername/dev-portfolio",
-      liveLink: "https://vaibhavi-portfolio.vercel.app"
+      githubLink: "https://github.com/Vaibhavii3/Customer-Churn-Analysis-and-Classification.git",
+      // liveLink: "https://vaibhavi-portfolio.vercel.app"
     },
     {
       title: "Personal Intelligent Voice Assistance",
       description: "A Python-powered AI assistant capable of voice recognition, task automation, and real-time responses.",
       technologies: ["Python"],
-      githubLink: "https://github.com/yourusername/ecommerce-platform",
-      liveLink: "https://modern-ecommerce.vercel.app"
+      githubLink: "https://github.com/Vaibhavii3/Personal-Intelligence-voice-assistance.git",
+      // liveLink: "https://modern-ecommerce.vercel.app"
+    },
+    {
+      title: "Slot Machine Game",
+      description: "A fun and interactive slot machine game built with HTML, CSS, and JavaScript. Includes both a web-based GUI version and a terminal-based CLI version. Features balance management, real-time feedback, and a retro-themed UI. Spin the reels and test your luck!",
+      technologies: ["JavaScript","HTML", "CSS"],
+      githubLink: "https://github.com/Vaibhavii3/Slot-Machine-Game.git",
+      liveLink: "https://slot-machine-game-orpin.vercel.app/"
     }
+
   ];
 
   const skillCategories = [
@@ -53,6 +61,16 @@ export default function Projects() {
       name: "Development Tools",
       icon: <FaTools className="text-purple-400" />,
       skills: ["Git", "GitHub", "VS Code", "Postman"]
+    },
+    {
+      name: "Design Tools",
+      icon: <FaTools className="text-purple-400" />,
+      skills: ["Figma", "Canva"]
+    },
+    {
+      name: "3D Tools",
+      icon: <FaTools className="text-purple-400" />,
+      skills: ["Blender"]
     },
     // {
     //   name: "AI & Machine Learning",
