@@ -44,6 +44,13 @@ export default function Projects() {
       technologies: ["React","Sanity.io", "CSS"],
       githubLink: "https://github.com/Vaibhavii3/My-Blog-Website.git",
       liveLink: "https://my-blog-website-iota.vercel.app/"
+    },
+    {
+      title: "Sanatan API",
+      description: "A minimalist Node.js-powered REST API serving quotes from the Bhagavad Gita in Sanskrit, Hindi, and English. Includes spiritual lessons and real-life applications. Built with a JSON dataset and file-based logic, it's ideal for spiritual apps, extensions, or bots.",
+      technologies: ["Nodejs","JSON", "REST"],
+      githubLink: "https://github.com/Vaibhavii3/sanatan-api.git",
+      liveLink: "https://sanatan-api-sepia.vercel.app/"
     }
 
   ];
@@ -57,7 +64,7 @@ export default function Projects() {
     {
       name: "Backend",
       icon: <FaServer className="text-purple-400" />,
-      skills: ["Node.js", "Express"]
+      skills: ["Node.js", "Express", "REST API"]
     },
     {
       name: "Database & CMS",
@@ -67,7 +74,7 @@ export default function Projects() {
     {
       name: "Development Tools",
       icon: <FaTools className="text-purple-400" />,
-      skills: ["Git", "GitHub", "VS Code", "Postman"]
+      skills: ["Git", "GitHub", "VS Code", "Postman", "JSON"]
     },
     {
       name: "Design Tools",
