@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
+// import emailjs from "@emailjs/browser";
 import { FaEnvelope, FaGithub, FaLinkedin, FaDiscord } from "react-icons/fa";
 import Navbar from "@/components/Navbar";
 
@@ -23,22 +23,36 @@ export default function Contact() {
   console.log("Email Data Sent:", emailData);
 
     try {
-      await emailjs.sendForm(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-        form.current,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_ID,
-      );
 
-      setMessage("Message sent successfully!");
-      form.current.reset();
-    } catch (error) {
-      console.error("EmailJS Error:", error);
-      setMessage("Failed to send message. Try again later.");
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json();
+      setMessage(result.message);
+
+      if (res.ok) form.current.reset();
+    } catch (err) {
+      console.error(err);
+      setMessage('Something went wrong. Please try again later.');
     }
-
     setIsSending(false);
   };
+    //   await emailjs.sendForm(
+    //     process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+    //     process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+    //     form.current,
+    //     process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_ID,
+    //   );
+
+    //   setMessage("Message sent successfully!");
+    //   form.current.reset();
+    // } catch (error) {
+    //   console.error("EmailJS Error:", error);
+    //   setMessage("Failed to send message. Try again later.");
+
 
   return (
     <div className="bg-black min-h-screen text-white overflow-x-hidden">
