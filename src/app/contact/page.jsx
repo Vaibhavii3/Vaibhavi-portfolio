@@ -14,12 +14,8 @@ export default function Contact() {
     setIsSending(true);
     setMessage("");
 
-  // Ensure form contains the user's email for reply_to
   const formData = new FormData(form.current);
   const data = Object.fromEntries(formData.entries());
-  // emailData.reply_to = emailData.user_email;
-
-  // console.log("Email Data Sent:", emailData);
 
     try {
 
@@ -74,9 +70,6 @@ export default function Contact() {
                   required 
                 />
               </div>
-
-              {/* Hidden Input to Ensure Reply-To Works */}
-              {/* <input type="hidden" name="reply_to" value="" /> */}
               
               <div>
                 <input 
@@ -149,10 +142,10 @@ export default function Contact() {
                     vaibhavichaudhari304@gmail.com
                   </a>
                 </p>
-                <p className="flex items-center gap-3">
+                {/* <p className="flex items-center gap-3">
                   <FaDiscord className="text-purple-400" />
                   <span></span>
-                </p>
+                </p> */}
               </div>
             </div>
             
