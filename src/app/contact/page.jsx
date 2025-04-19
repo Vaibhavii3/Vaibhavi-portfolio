@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState } from "react";
-// import emailjs from "@emailjs/browser";
 import { FaEnvelope, FaGithub, FaLinkedin, FaDiscord } from "react-icons/fa";
 import Navbar from "@/components/Navbar";
 
@@ -17,10 +16,10 @@ export default function Contact() {
 
   // Ensure form contains the user's email for reply_to
   const formData = new FormData(form.current);
-  const emailData = Object.fromEntries(formData.entries());
+  const data = Object.fromEntries(formData.entries());
   // emailData.reply_to = emailData.user_email;
 
-  console.log("Email Data Sent:", emailData);
+  // console.log("Email Data Sent:", emailData);
 
     try {
 
@@ -40,19 +39,6 @@ export default function Contact() {
     }
     setIsSending(false);
   };
-    //   await emailjs.sendForm(
-    //     process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-    //     process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-    //     form.current,
-    //     process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_ID,
-    //   );
-
-    //   setMessage("Message sent successfully!");
-    //   form.current.reset();
-    // } catch (error) {
-    //   console.error("EmailJS Error:", error);
-    //   setMessage("Failed to send message. Try again later.");
-
 
   return (
     <div className="bg-black min-h-screen text-white overflow-x-hidden">
@@ -90,7 +76,7 @@ export default function Contact() {
               </div>
 
               {/* Hidden Input to Ensure Reply-To Works */}
-              <input type="hidden" name="reply_to" value="" />
+              {/* <input type="hidden" name="reply_to" value="" /> */}
               
               <div>
                 <input 
