@@ -1,4 +1,4 @@
-import nodemailer from 'nodemailer';
+const nodemailer = require('nodemailer');
 
 export async function POST(req) {
     const body = await req.json();
@@ -14,15 +14,13 @@ export async function POST(req) {
         });
 
         const mailOptions = {
-            from: reply_to,
-            to: process.env.EMAIL_USER,
+            from: process.env.EMAIL_USER,
+            to: process.env.EMAIL_TO,
             subject: title || `New message from ${from_name}`,
-            Text:`
-            Name: ${from_name}
-            Email: ${reply_to}
-            
-            Message:
-            ${message}
+            html:`
+                <p>You got a new message from ${from_name} (${reply_to})</p>
+                <p><strong>Subject:</strong> ${title || "No subject"} </p>
+                <p><strong>Message:</strong><br/>${message}</p>
                 `,
         };
 
