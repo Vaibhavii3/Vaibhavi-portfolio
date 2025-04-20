@@ -97,7 +97,7 @@ export default function About() {
             </ul>
           </div>
 
-          <div className="border border-purple-800/30 rounded p-6 hover:border-purple-400 transition-colors duration-300">
+          {/* <div className="border border-purple-800/30 rounded p-6 hover:border-purple-400 transition-colors duration-300">
               <h2 className="text-lg font-light pb-3 flex items-center gap-2 border-b border-purple-800/30">
               <FaLanguage className="text-purple-400" /> Languages
               </h2>
@@ -115,7 +115,7 @@ export default function About() {
                   <span className="text-purple-400">•</span> japanese 
                   </li>
               </ul>
-          </div>
+          </div> */}
 
         </div>
       </div>
