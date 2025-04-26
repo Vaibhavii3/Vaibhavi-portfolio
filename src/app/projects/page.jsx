@@ -16,16 +16,16 @@ const fadeVariants = {
 
 export default function Projects() {
   const [activeTab, setActiveTab] = useState("Projects");
-  const [selectedTech, setSelectedTech] = useState(null);
+  const [selectedTech, setSelectedTech] = useState("All");
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
-    setSelectedTech(null); // Reset technology filter when switching tabs
+    setSelectedTech("All"); 
   };
 
-  const filteredProjects = selectedTech
-    ? projects.filter((p) => p.technologies.includes(selectedTech))
-    : projects;
+  const filteredProjects = selectedTech === "All"
+    ? projects
+    : projects.filter((p) => p.category.includes(selectedTech));
 
   return (
     <div className="bg-black min-h-screen text-white overflow-x-hidden">
@@ -56,9 +56,10 @@ export default function Projects() {
             <motion.div
               key="projects"
               variants={fadeVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
               className="grid grid-cols-1 md:grid-cols-2 gap-6"
             >
               {projects.map((project, index) => (
@@ -71,9 +72,10 @@ export default function Projects() {
             <motion.div
               key="skills"
               variants={fadeVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
               {skillCategories.map((category, index) => (
@@ -86,41 +88,67 @@ export default function Projects() {
             <motion.div
               key="technology"
               variants={fadeVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
             >
               {/* Technology Buttons */}
               <div className="flex flex-wrap justify-center gap-3 mb-10">
-                {Array.from(new Set(projects.flatMap((p) => p.technologies))).map((tech) => (
+                {Array.from(new Set(projects.flatMap((p) => p.category))).map((tech) => (
+                  <motion.div
+                  key={tech}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                  >
                   <button
                     key={tech}
                     onClick={() => setSelectedTech(tech)}
                     className={`px-4 py-2 rounded-full border ${
                       selectedTech === tech
-                        ? "border-purple-400 bg-purple-900/30"
+                        ? "border-purple-400 bg-purple-600"
                         : "border-purple-800"
                     } hover:border-purple-400 transition-all duration-300 text-sm`}
                   >
                     {tech}
                   </button>
+                </motion.div>
                 ))}
+
+                <motion.div
+                  key="All"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                >
                 <button
-                  onClick={() => setSelectedTech(null)}
+                  onClick={() => setSelectedTech("All")}
                   className={`px-4 py-2 rounded-full border ${
-                    selectedTech === null
-                      ? "border-purple-400 bg-purple-900/30"
+                    selectedTech === "All"
+                      ? "border-purple-400 bg-purple-600"
                       : "border-purple-800"
                   } hover:border-purple-400 transition-all duration-300 text-sm`}
                 >
                   All
                 </button>
+                </motion.div>
               </div>
 
               {/* Filtered Projects */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {filteredProjects.map((project, index) => (
-                  <ProjectCard key={index} project={project} />
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <ProjectCard project={project} />
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
