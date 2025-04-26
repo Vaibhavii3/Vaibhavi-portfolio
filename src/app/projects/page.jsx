@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import { FaGithub, FaExternalLinkAlt, FaRocket } from "react-icons/fa";
 import { projects, skillCategories } from "@/data/projectsData";
 
-const tabs = ["Projects", "Skills", "Technology"];
+const tabs = ["Projects", "Skills"];
 
 const fadeVariants = {
   initial: { opacity: 0, y: 20 },
@@ -52,7 +52,7 @@ export default function Projects() {
 
         {/* Content */}
         <AnimatePresence mode="wait">
-          {activeTab === "Projects" && (
+          {/* {activeTab === "Projects" && (
             <motion.div
               key="projects"
               variants={fadeVariants}
@@ -66,7 +66,7 @@ export default function Projects() {
                 <ProjectCard key={index} project={project} />
               ))}
             </motion.div>
-          )}
+          )} */}
 
           {activeTab === "Skills" && (
             <motion.div
@@ -84,9 +84,9 @@ export default function Projects() {
             </motion.div>
           )}
 
-          {activeTab === "Technology" && (
+          {activeTab === "Projects" && (
             <motion.div
-              key="technology"
+              key="Projects"
               variants={fadeVariants}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
