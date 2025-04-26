@@ -50,7 +50,6 @@ export const projects = [
       githubLink: "https://github.com/Vaibhavii3/sanatan-api.git",
       liveLink: "https://sanatan-api-sepia.vercel.app/"
     }
-
   ];
 
 export const skillCategories = [
